@@ -16,7 +16,7 @@ public class Application {
 
                 )
                 .get("/", ctx -> ctx.result("Hello World"))
-                .start(8084);
+                .start(8080);
 
         app.get("/api/mascotas", new GetMascotasHandler());
         app.get("/api/mascotas/{id}", new GetMascotaIdHandler());
