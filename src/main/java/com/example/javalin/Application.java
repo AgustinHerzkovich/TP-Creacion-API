@@ -26,7 +26,7 @@ public class Application {
 
         app.post("/api/login", new LoginHandler());
 
-        app.post(("/api/logout"), new LogoutHandler());
+        app.post(("/api/logout"), new LogoutHandler()); // Endpoint de logout
 
         app.exception(IllegalArgumentException.class, (e, ctx) -> {
             ctx.status(400);

@@ -22,10 +22,10 @@ public class LoginHandler implements Handler {
 
         LoginRequest loginRequest = context.bodyAsClass(LoginRequest.class);
 
-        Dueño dueño = repoDueños.obtenerUsuario(loginRequest.getUsername(), loginRequest.getPassword());
+        Dueño dueño = repoDueños.obtenerUsuario(loginRequest.getUsername(), loginRequest.getPassword()); // Obtengo el usuario particular y ya no un hardcode
 
         if (dueño == null) {
-            context.status(400).result("Usuario no encontrado o contraseña incorrecta");
+            context.status(400).result("Usuario no encontrado o contraseña incorrecta"); // Si no existe el usuario o la contraseña es incorrecta devuelvo 400
             return;
         }
 
@@ -38,7 +38,7 @@ public class LoginHandler implements Handler {
 //        sesionManager.agregarAtributo(idSesion, "fechaInicio", new Date());
 //        sesionManager.agregarAtributo(idSesion, "rol", repoRoles.getByUser(idUser));
 
-        context.status(200).json(new LoginResponse(idSesion));
+        context.status(200).json(new LoginResponse(idSesion)); // Devuelvo 200 en caso de que el login haya sido correcto
 
     }
 

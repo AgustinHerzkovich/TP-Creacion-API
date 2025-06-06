@@ -45,7 +45,7 @@ public class RepositorioDueños {
         return jose;
     }
 
-    public Dueño obtenerUsuario(String username, String password) {
+    public Dueño obtenerUsuario(String username, String password) { // Obtengo el usuario en particular en base a su username y password
         return obtenerTodos().stream().filter(usuario -> usuario.getNombre().equals(username) && usuario.getPassword().equals(password)).findFirst().orElse(null);
     }
 }
